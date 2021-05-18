@@ -19,8 +19,15 @@ function ImgSlider() {
     return (
         <Carousel {...settings}>
             <Wrap>
+                <img src="/images/slider-scale.jpg" alt="slider-scale"/>
+            </Wrap>
+
+            <Wrap>
                 <img src="/images/slider-badging.jpg" alt="slider-badging"/>
-            </Wrap>            
+            </Wrap>
+            <Wrap>
+                <img src="/images/slider-scales.jpg" alt="slider-scales"/>
+            </Wrap>
             <Wrap>
                 <img src="/images/slider-badag.jpg" alt="slider-badag"/>
             </Wrap>
