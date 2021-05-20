@@ -27,9 +27,12 @@ function Details() {
                         <img src="/images/group-icon.png" alt="group-icon"/>
                 </GroupWatchButton>
             </Controls>
-            <Subtitle>
-
-            </Subtitle>
+            <SubTitle>
+                2021 • 1 Season • Romance, Drama, Science Fiction, Fantasy
+            </SubTitle>
+            <Description>
+            Marvel Studios presents “WandaVision,” a blend of classic television and the Marvel Cinematic Universe in which Wanda Maximoff (Elizabeth Olsen) and Vision (Paul Bettany)—two super-powered beings living idealized suburban lives—begin to suspect that everything is not as it seems. The new series is directed by Matt Shakman; Jac Schaeffer is head writer.
+            </Description>
         </Container>
     )
 }
@@ -102,6 +105,8 @@ const TrailerButton = styled(PlayButton)`
     border: 1px solid rgb(249, 249, 249);
     color: rgb(249, 249, 249);
     text-transform: uppercase;
+
+
    
 `
 
@@ -128,6 +133,24 @@ const AddButton = styled.div`
 const GroupWatchButton = styled(AddButton)`
     background: rgb(0, 0, 0);
 
+    
+    
+
 `
 
-const Subtitle = styled.div``
+const SubTitle = styled.div`
+    color: rgb(249, 249, 249);
+    font-size: 15px;
+    min-height: 20px;
+    margin-top: 26px;
+    font-family: Avenir-Roman, sans-serif;
+`
+
+const Description = styled.div`
+    color: rgb(249, 249, 249);
+    line-height: 1.4;
+    font-size: 20px;
+    margin-top: 16px;
+    font-family: Avenir-Roman, sans-serif;
+    
+`
