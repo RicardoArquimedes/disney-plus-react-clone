@@ -24,9 +24,12 @@ function Details() {
                     <span>+</span>
                 </AddButton>
                 <GroupWatchButton>
-
+                        <img src="/images/group-icon.png" alt="group-icon"/>
                 </GroupWatchButton>
             </Controls>
+            <Subtitle>
+
+            </Subtitle>
         </Container>
     )
 }
@@ -116,10 +119,15 @@ const AddButton = styled.div`
 
     span {
         font-size: 30px;
+        margin-top: -5px;
         color: white;
+ 
     }
 `
 
-const GroupWatchButton = styled.div`
+const GroupWatchButton = styled(AddButton)`
+    background: rgb(0, 0, 0);
 
 `
+
+const Subtitle = styled.div``
