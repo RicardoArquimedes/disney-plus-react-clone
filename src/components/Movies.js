@@ -42,7 +42,7 @@ function Movies() {
                 <Wrap>
                     <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/F5D8C3E9CC39E61A6CA9DD0B60945F3CF72280352BA814A525B863A47B937E88/scale?width=400&aspectRatio=1.78&format=jpeg" alt="wanda-vision"/>
                 </Wrap>
-                {/* <Wrap>
+                <Wrap>
                     <img src="https://cannonball-cdn.bamgrid.com/assets/originals/HSMTMTS_Key_Art_en-US.jpg" alt="wanda-vision"/>
                 </Wrap>
                 <Wrap>
@@ -53,7 +53,10 @@ function Movies() {
                 </Wrap>
                 <Wrap>
                     <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/3EBA0D112F0E3724241E3FEF97E714BE821823CE01CFFF2F54884D98A2EE2436/scale?width=1200&aspectRatio=1.78&format=jpeg" alt="wanda-vision"/>
-                </Wrap> */}
+                </Wrap>
+                <Wrap>
+                    
+                </Wrap>
             </Content>
         </Container>
     )
@@ -87,9 +90,9 @@ const Wrap = styled.div`
     }
 
     &:hover{
-        transform: scale(1.05);
         box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
         rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+        transform: scale(1.05);
         border-color: rgba(249, 249, 249, 0.8);
     }
 `
