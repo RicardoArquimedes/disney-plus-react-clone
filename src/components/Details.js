@@ -6,7 +6,7 @@ function Details() {
     return (
         <Container>
             <Background>
-                <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/0D20E549227FFDC3B1207DBA9F5F94C2EB53783E7CAE0BF8E37ECEE899F03087/scale?width=1440&aspectRatio=1.78&format=jpeg" alt="wandavision-cover"/>
+                <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/0D20E549227FFDC3B1207DBA9F5F94C2EB53783E7CAE0BF8E37ECEE899F03087/scale?width=1400&aspectRatio=1.78&format=jpeg" alt="wandavision-cover"/>
             </Background>
             <ImageTitle>
                 <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/AC446487B02CDADEACEFEC36EAA9F618DD0895058B0F84E954276C0F7E203A7D/scale?width=1440&aspectRatio=1.78" alt="wandavision-title" />
@@ -66,11 +66,13 @@ const ImageTitle = styled.div `
     min-height: 170px;
     width: 35vw;
     min-width: 200px;
+    margin-top: 80px;
 
     img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+       
     }
     
 `
@@ -151,6 +153,6 @@ const Description = styled.div`
     line-height: 1.4;
     font-size: 20px;
     margin-top: 16px;
-    font-family: Avenir-Roman, sans-serif;
+    max-width: 500px;
     
 `

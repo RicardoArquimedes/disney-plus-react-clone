@@ -1,16 +1,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 function Header() {
   return (
     <Nav>
-        <Logo src="/images/logo.svg" />
+         <Link to="/">
+         <Logo src="/images/logo.svg" />
+         </Link>
+
         <NavMenu>
           <a>
             <img src="/images/home-icon.svg" alt="home-icon" />
             <span>HOME</span>
           </a>
+            
+         
           <a>
             <img src="/images/search-icon.svg" alt="search-icon" />
             <span>SEARCH</span>
