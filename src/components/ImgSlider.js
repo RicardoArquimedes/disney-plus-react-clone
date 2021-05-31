@@ -12,7 +12,7 @@ function ImgSlider() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 1,
         slideToScroll: 1,
         autoplay: true
     }
