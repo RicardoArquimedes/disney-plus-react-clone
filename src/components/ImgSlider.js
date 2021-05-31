@@ -12,13 +12,47 @@ function ImgSlider() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 5,
         slideToScroll: 1,
         autoplay: true
     }
     
     return (
         <Carousel {...settings}>
+            <Wrap>
+            <img src="/images/slider-badging.jpg" alt="slider-badging"/>
+            </Wrap>
+
+            <Wrap>
+                <Link to="/detail">
+                
+                <img src="/images/slider-scale.jpg" alt="slider-scale"/>
+                </Link>
+                
+            </Wrap>
+            <Wrap>
+                <img src="/images/slider-scales.jpg" alt="slider-scales"/>
+            </Wrap>
+            <Wrap>
+                <img src="/images/slider-badag.jpg" alt="slider-badag"/>
+            </Wrap>
+            <Wrap>
+            <img src="/images/slider-badging.jpg" alt="slider-badging"/>
+            </Wrap>
+
+            <Wrap>
+                <Link to="/detail">
+                
+                <img src="/images/slider-scale.jpg" alt="slider-scale"/>
+                </Link>
+                
+            </Wrap>
+            <Wrap>
+                <img src="/images/slider-scales.jpg" alt="slider-scales"/>
+            </Wrap>
+            <Wrap>
+                <img src="/images/slider-badag.jpg" alt="slider-badag"/>
+            </Wrap>
             <Wrap>
             <img src="/images/slider-badging.jpg" alt="slider-badging"/>
             </Wrap>
