@@ -1,158 +1,168 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import { useParams } from 'react-router-dom'
+import db from '../firebase'
 
 
-function Details() {
+
+
+function Detail() {
+    const {id} = useParams();
+    const [ movie, setMovie ] = useState();
+   
+
+    useEffect(()=> {
+       //Grab the movie from DB
+       db.collection('movies')
+       .doc(id)
+       .get()
+       .then((doc)=> {
+         if (doc.exists) {
+             //save the movie data
+            setMovie(doc.data());
+
+         } else {
+           //redirects to homepage
+         }
+       })
+    }, [id])
+   
     return (
         <Container>
             <Background>
-                <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/0D20E549227FFDC3B1207DBA9F5F94C2EB53783E7CAE0BF8E37ECEE899F03087/scale?width=1400&aspectRatio=1.78&format=jpeg" alt="wandavision-cover"/>
+                 <img src={movie.backgroundImg} alt=""/> 
             </Background>
             <ImageTitle>
-                <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/AC446487B02CDADEACEFEC36EAA9F618DD0895058B0F84E954276C0F7E203A7D/scale?width=1440&aspectRatio=1.78" alt="wandavision-title" />
+                <img src={movie.titleImg} alt="" />
             </ImageTitle>
             <Controls>
                 <PlayButton>
-                    <img src="/images/play-icon-black.png" alt="play" />
+                    <img src="/images/play-icon-black.png" alt="" />
                     <span>PLAY</span>
                 </PlayButton>
-                <TrailerButton>
-                    <img src="/images/play-icon-white.png" alt="play" />
+                <TrailerButton>s
+                    <img src="/images/play-icon-white.png" alt=""/>
                     <span>Trailer</span>
                 </TrailerButton>
                 <AddButton>
                     <span>+</span>
                 </AddButton>
                 <GroupWatchButton>
-                        <img src="/images/group-icon.png" alt="group-icon"/>
+                    <img src="/images/group-icon.png" alt=""/>
                 </GroupWatchButton>
             </Controls>
             <SubTitle>
-                2021 • 1 Season • Romance, Drama, Science Fiction, Fantasy
+               {movie.subTitle}
             </SubTitle>
             <Description>
-            Marvel Studios presents “WandaVision,” a blend of classic television and the Marvel Cinematic Universe in which Wanda Maximoff (Elizabeth Olsen) and Vision (Paul Bettany)—two super-powered beings living idealized suburban lives—begin to suspect that everything is not as it seems. The new series is directed by Matt Shakman; Jac Schaeffer is head writer.
+               {movie.description}
             </Description>
         </Container>
     )
 }
+export default Detail
 
-export default Details;
 
-const Container = styled.div `
-    min-height: calc(100vh - 70px);
-    padding: 0 calc(3.5vw + 5px);
-    position: relative;
+const Container = styled.div`
+   min-height: calc(100vh - 70px);
+   padding: 0 calc(3.5vw + 5px);
+   position: relative;
 `
 
-const Background = styled.div `
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    opacity: 0.8;
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
+const Background = styled.div`
+   position: fixed;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   z-index: -1;
+   opacity: 0.8;
+   img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
 `
-const ImageTitle = styled.div `
-    height: 30vh;
-    min-height: 170px;
-    width: 35vw;
-    min-width: 200px;
-    margin-top: 80px;
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-       
-    }
-    
+
+const ImageTitle = styled.div`
+  height: 30vh;
+  width: 35vw;
+  min-height: 170px;
+  min-weight: 200px; 
+  margin-top: 60px;     
+ img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+ }
 `
 
 const Controls = styled.div`
-    display: flex;
-    align-items: center;
-
+   display: flex;
+   align-items: center;
 `
 
-const PlayButton = styled.div`
-    border-radius: 4px;
-    font-size: 15px;
-    padding: 0px 24px;
-    margin-right: 22px;
-    display: flex;
-    align-items: center;
-    height: 56px;
-    background: #fff;
-    color: #000;
-    border: none;
-    letter-spacing: 1.8px;
-    cursor: pointer;
-
-    &:hover {
-        background: rgb(198, 198, 198);
-    }
+const PlayButton = styled.button`
+   border-radius: 4px;
+   font-size: 15px;
+   display: flex;
+   align-items: center;
+   height: 56px;
+   background: rgb(249, 249, 249);
+   border: none;
+   padding: 0px 24px;
+   margin-right: 22px;
+   letter-spacing: 1.8px;
+   cursor: pointer;
+   &:hover {
+     background: rgb(198, 198, 198);
+   }
 `
 
 const TrailerButton = styled(PlayButton)`
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgb(249, 249, 249);
-    color: rgb(249, 249, 249);
-    text-transform: uppercase;
-
-
-   
+  background: rgba(0, 0 , 0 ,0.3);
+  border: 1px solid rgb( 249, 249, 249);
+  color: rbg(249, 249, 249);
+  text-transform: uppercase;
 `
 
-const AddButton = styled.div`
-    margin-right: 16px;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 2px solid white;
-    background-color: rgba(0, 0, 0, 0.6);
-    cursor: pointer;
 
-    span {
-        font-size: 30px;
-        margin-top: -5px;
-        color: white;
- 
-    }
+
+
+const AddButton = styled.button`
+  width: 44px;
+  margin-right: 16px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  span {
+    font-size: 30px;
+    color: white;
+  }
 `
-
 const GroupWatchButton = styled(AddButton)`
-    background: rgb(0, 0, 0);
-
-    
-    
-
+   background: rgb(0, 0, 0);
 `
+
 
 const SubTitle = styled.div`
-    color: rgb(249, 249, 249);
-    font-size: 15px;
-    min-height: 20px;
-    margin-top: 26px;
-    font-family: Avenir-Roman, sans-serif;
+  color: rgb(249, 249, 249);
+  font-size: 15px;
+  min-height: 20px;
+  margin-top: 26px;
 `
 
+
 const Description = styled.div`
-    color: rgb(249, 249, 249);
-    line-height: 1.4;
-    font-size: 20px;
-    margin-top: 16px;
-    max-width: 500px;
-    
+  line-height: 1.4;
+  font-size: 20px;
+  margin-top: 16px;
+  color: rgb(249, 249, 249);
+  max-width: 700px;
 `
